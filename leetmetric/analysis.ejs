@@ -1,0 +1,34 @@
+<%- include('partials/header', { title: 'Analysis', activePage: 'analysis' }) %>
+
+    <main class="container">
+        <div class="analysis-container">
+            <h2>LeetCode Progress Analyzer</h2>
+            
+            <div class="user-container">
+                <p>Enter your LeetCode username:</p>
+                <div class="user-input-container">
+                    <input type="text" id="user-input" placeholder="e.g. leetcode_user123">
+                    <button id="search-btn">Analyze</button>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="progress">
+                    <div class="circle easy-progress">
+                        <span id="easy-label">0/0</span>
+                        <p>Easy</p>
+                    </div>
+                    <div class="circle medium-progress">
+                        <span id="medium-label">0/0</span>
+                        <p>Medium</p>
+                    </div>
+                    <div class="circle hard-progress">
+                        <span id="hard-label">0/0</span>
+                        <p>Hard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<%- include('partials/footer') %>

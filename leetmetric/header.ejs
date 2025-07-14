@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetMetric - <%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">LeetMetric</h1>
+            <ul class="nav-links">
+                <li><a href="/" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a></li>
+                <li><a href="/analysis" class="<%= activePage === 'analysis' ? 'active' : '' %>">Analysis</a></li>
+                <li><a href="/leaderboard" class="<%= activePage === 'leaderboard' ? 'active' : '' %>">Leaderboard</a></li>
+                <li><a href="/about" class="<%= activePage === 'about' ? 'active' : '' %>">About</a></li>
+                <li><a href="/help" class="<%= activePage === 'help' ? 'active' : '' %>">Help</a></li>
+            </ul>
+        </div>
+    </nav>

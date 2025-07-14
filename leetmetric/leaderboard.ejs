@@ -1,0 +1,53 @@
+<%- include('partials/header', { title: 'Leaderboard', activePage: 'leaderboard' }) %>
+
+<main class="container">
+    <div class="leaderboard-container">
+        <h2>LeetCode Leaderboard</h2>
+        <p class="subtitle">Top performers based on problem solving</p>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="sort-by">Sort by:</label>
+                <select id="sort-by">
+                    <option value="total">Total Solved</option>
+                    <option value="easy">Easy Solved</option>
+                    <option value="medium">Medium Solved</option>
+                    <option value="hard">Hard Solved</option>
+                    <option value="acceptance">Acceptance Rate</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="search-user">Search user:</label>
+                <input type="text" id="search-user" placeholder="Enter username">
+            </div>
+        </div>
+        
+        <div class="leaderboard-content">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Total Solved</th>
+                        <th>Easy</th>
+                        <th>Medium</th>
+                        <th>Hard</th>
+                        <th>Acceptance</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Leaderboard rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <button class="pagination-btn" id="prev-page">Previous</button>
+            <span id="page-info">Page 1 of 1</span>
+            <button class="pagination-btn" id="next-page">Next</button>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,616 @@
+:root {
+  --primary-color: #41e2ba;
+  --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --container-bg: linear-gradient(145deg, rgba(40, 40, 60, 0.95) 0%, rgba(30, 30, 50, 0.95) 100%);
+  --text-color: #e6e6e6;
+  --card-bg: rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+  background: rgba(40, 40, 60, 0.95);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Navigation Styles */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Analysis Page Styles */
+.analysis-container {
+  background: var(--container-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+
+.user-input-container {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+#user-input {
+  flex: 1;
+  padding: 0.8rem;
+  background: rgba(30, 30, 50, 0.8);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  color: white;
+}
+
+#search-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#search-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Progress Circles */
+.circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  margin: 1rem auto;
+}
+
+.progress {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: auto;
+  background: rgba(40, 40, 60, 0.95);
+}
+
+/* 404 Page Styles */
+.error-page {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.error-page h1 {
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+/* Add these to the bottom of your CSS file */
+
+/* Card styles */
+.card {
+  background: rgba(30, 30, 50, 0.8);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 1rem auto;
+  width: 80%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(65, 226, 186, 0.3);
+}
+
+.card h3 {
+  color: #41E2BA;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Error message */
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Animation for circles */
+@keyframes progress-grow {
+  from { --progress: 0%; }
+  to { --progress: calc(var(--percentage) * 1%); }
+}
+
+.circle {
+  /* Add this property */
+  background: conic-gradient(#41E2BA var(--progress, 0%), rgba(40, 40, 60, 0.8) 0%);
+  transition: --progress 1s ease-in-out;
+}
+
+/* Leaderboard Styles */
+.leaderboard-container {
+  background: var(--container-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+
+.subtitle {
+  color: #a0a0c0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(30, 30, 50, 0.6);
+  border-radius: 10px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 0.5rem;
+  background: rgba(20, 20, 40, 0.8);
+  border: 1px solid rgba(65, 226, 186, 0.3);
+  border-radius: 5px;
+  color: white;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.leaderboard-table th {
+  background: rgba(65, 226, 186, 0.2);
+  padding: 1rem;
+  text-align: left;
+  color: #41E2BA;
+}
+
+.leaderboard-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-table tr:nth-child(even) {
+  background: rgba(30, 30, 50, 0.4);
+}
+
+.leaderboard-table tr:hover {
+  background: rgba(65, 226, 186, 0.1);
+}
+
+.rank-badge {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.rank-1 {
+  background: linear-gradient(to right, #FFD700, #FFA500);
+  color: #1a1a2e;
+}
+
+.rank-2 {
+  background: linear-gradient(to right, #C0C0C0, #A9A9A9);
+  color: #1a1a2e;
+}
+
+.rank-3 {
+  background: linear-gradient(to right, #CD7F32, #A67B5B);
+  color: #1a1a2e;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(65, 226, 186, 0.3);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background: rgba(65, 226, 186, 0.5);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#page-info {
+  font-size: 0.9rem;
+}
+
+/* Difficulty badges */
+.easy-badge {
+  color: #41E2BA;
+}
+
+.medium-badge {
+  color: #FFA500;
+}
+
+.hard-badge {
+  color: #FF6B6B;
+}
+
+/* Add these to your existing CSS */
+
+/* About Page Styles */
+.about-section {
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.95), rgba(30, 30, 50, 0.95));
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-header h2 {
+  font-size: 2.5rem;
+  color: #41E2BA;
+  margin-bottom: 0.5rem;
+}
+
+.decorative-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #41E2BA, #299f5d);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.about-content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(65, 226, 186, 0.3);
+  border: 2px dashed rgba(65, 226, 186, 0.2);
+}
+
+.about-text {
+  flex: 2;
+  min-width: 300px;
+}
+
+.about-text p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: rgba(30, 30, 50, 0.8);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(65, 226, 186, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(65, 226, 186, 0.1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: #41E2BA;
+  margin-bottom: 0.5rem;
+}
+
+.team-section {
+  margin-top: 3rem;
+}
+
+.team-section h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #41E2BA;
+  font-size: 1.8rem;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.member {
+  background: rgba(30, 30, 50, 0.8);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+  border: 1px solid rgba(65, 226, 186, 0.2);
+}
+
+.member-avatar {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.member h4 {
+  color: #41E2BA;
+  margin-bottom: 0.3rem;
+}
+
+/* Leaderboard Styles */
+.leaderboard-container {
+  background: linear-gradient(145deg, rgba(40, 40, 60, 0.95), rgba(30, 30, 50, 0.95));
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+
+.subtitle {
+  color: #a0a0c0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(30, 30, 50, 0.6);
+  border-radius: 10px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 0.5rem;
+  background: rgba(20, 20, 40, 0.8);
+  border: 1px solid rgba(65, 226, 186, 0.3);
+  border-radius: 5px;
+  color: white;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.leaderboard-table th {
+  background: rgba(65, 226, 186, 0.2);
+  padding: 1rem;
+  text-align: left;
+  color: #41E2BA;
+  position: sticky;
+  top: 0;
+}
+
+.leaderboard-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-table tr:nth-child(even) {
+  background: rgba(30, 30, 50, 0.4);
+}
+
+.leaderboard-table tr:hover {
+  background: rgba(65, 226, 186, 0.1);
+}
+
+.rank-badge {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.rank-1 {
+  background: linear-gradient(to right, #FFD700, #FFA500);
+  color: #1a1a2e;
+}
+
+.rank-2 {
+  background: linear-gradient(to right, #C0C0C0, #A9A9A9);
+  color: #1a1a2e;
+}
+
+.rank-3 {
+  background: linear-gradient(to right, #CD7F32, #A67B5B);
+  color: #1a1a2e;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(65, 226, 186, 0.3);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background: rgba(65, 226, 186, 0.5);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#page-info {
+  font-size: 0.9rem;
+}
+
+/* Difficulty badges */
+.easy-badge {
+  color: #41E2BA;
+  font-weight: bold;
+}
+
+.medium-badge {
+  color: #FFA500;
+  font-weight: bold;
+}
+
+.hard-badge {
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+  
+  .image-placeholder {
+    height: 250px;
+  }
+  
+  .leaderboard-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .filters {
+    flex-direction: column;
+  }
+}
